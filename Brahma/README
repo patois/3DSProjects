@@ -1,0 +1,17 @@
+Example programs for use with Brahma
+====================================
+
+How to use:
+- Download Brahma (https://github.com/patois/Brahma/releases)
+- Put arm9payload.bin into root folder of your 3DS' SD card
+- Run brahma.3dsx using homebrew launcher
+
+How to build:
+- Download and install devkitARM (http://devkitpro.org/wiki/Getting_Started)
+- Open a shell and run 'make' in order to build arm9payload.bin
+
+Credits:
+- To archshift (and originally Normmatt) who provided the project
+  infrastructure along with Decrypt9/bootstrap that this project is based on.
+- 3DBrew
+- #3dsdev
