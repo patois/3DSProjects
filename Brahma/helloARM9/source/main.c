@@ -7,9 +7,9 @@
 
 
 void ClearTop() {
-    ClearScreen(TOP_SCREEN0, RGB(255, 255, 255));
-    ClearScreen(TOP_SCREEN1, RGB(255, 255, 255));
-    current_y = 0;
+	ClearScreen(TOP_SCREEN0, RGB(255, 255, 255));
+	ClearScreen(TOP_SCREEN1, RGB(255, 255, 255));
+	current_y = 0;
 }
 
 void wait_key() {
@@ -24,6 +24,6 @@ int main() {
 	Debug("Hello world from ARM9!");
 	wait_key();
 
-	// return control to FIRM ARM9 code
-    return 0;
+	// return control to FIRM ARM9 code (performs firmlaunch)
+	return 0;
 }
