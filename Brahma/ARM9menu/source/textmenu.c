@@ -31,14 +31,14 @@ menu_func_t *menu_get_element_function (int idx, struct menu_t *menu) {
 	return menu_is_valid_index(idx, menu) ? menu->element[idx].func : 0;
 }
 
-int menu_execute_function (int idx, struct menu_t *menu) {
+int menu_execute_function (int idx, struct menu_t *menu, void *param) {
 	int result = 0;
 	menu_func_t *f;	
 
 	if (menu_is_valid_index(idx, menu)) {
 		f = menu_get_element_function(idx, menu);
 		if (f)
-			result = f(idx, 0);
+			result = f(idx, param);
 	}
 
 	return result;

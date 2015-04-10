@@ -26,12 +26,17 @@ void wait_key() {
 	InputWait();
 }
 
-int who_am_i(int idx, void *notused) {
+int who_am_i(int idx, void *param) {
+	newline(1);		
 	Debug("Hi, from menu item %d", idx+1);
+	if (param)
+		Debug("Number of Tetris games played %d", *(u32 *)param);
 	return 0;
 }
 
-int fake_tetris(int idx, void *notused) {
+int fake_tetris(int idx, void *param) {
+	if (param)
+		(*(u32 *)param)++;
 	int i;
 	for(i=0; i<12; i++) {
 		ClearTop();
@@ -95,6 +100,7 @@ struct menu_t main_menu = {
 int main() {
 	u32 pad_state;
 	int menuidx = 0;
+	u32 num_calls = 0;
 
 	while (true) {
 		ClearTop();
@@ -107,7 +113,7 @@ int main() {
 		}
 		else if (pad_state & BUTTON_A) {
 			ClearTop();
-			menu_execute_function(menuidx, &main_menu);
+			menu_execute_function(menuidx, &main_menu, &num_calls);
 			wait_key();
 		}
 		else if (pad_state & BUTTON_UP) {
